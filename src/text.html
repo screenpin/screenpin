@@ -37,5 +37,10 @@
 </head>
 <body>
     <div id="textarea" contenteditable=""></div>
+    <script>
+        if (navigator.platform.indexOf('Windows') > -1) {
+            document.getElementById("textarea").style = 'padding-top: 0px;';
+        }
+    </script>
 </body>
 </html>
