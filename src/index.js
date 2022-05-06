@@ -17,6 +17,9 @@ const createWindow = () => {
     height: 150,
     titleBarStyle: 'hidden'
   });
+  if(process.platform == 'darwin') {
+    mainWindow.titleBarStyle = 'hidden'
+  }
   mainWindow.setWindowButtonVisibility(false)
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
