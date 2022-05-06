@@ -15,12 +15,13 @@ const createWindow = () => {
     minimizable: false,
     maximizable: false,
     height: 150,
-    titleBarStyle: 'hidden'
+    titleBarStyle: 'hidden',
+    autoHideMenuBar: true,
   });
   if(process.platform == 'darwin') {
-    mainWindow.titleBarStyle = 'hidden'
+    mainWindow.setWindowButtonVisibility(false)
   }
-  mainWindow.setWindowButtonVisibility(false)
+  mainWindow.setMenu(null);
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
