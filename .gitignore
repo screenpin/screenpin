@@ -87,3 +87,5 @@ typings/
 
 # Electron-Forge
 out/
+
+ScreenPin-win32-x64/
