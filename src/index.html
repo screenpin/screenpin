@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>ScreenPin</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h2>ScreenPin</h2>
+    <button onclick="newpin('text.html','titleBarStyle=hidden')">Text</button>
+    <button onclick="newpin('website.html','transparent=false,width=600,height=400')">Website</button>
+    <button onclick="newpin('image.html','transparent=false,width=600,height=400')">Image</button>
+    <button onclick="newpin('/Users/isaacb/ScreenPin.pdf','transparent=false,width=600,height=400,maxWidth=800,maxHeight=600,title=ScreenPin')">File</button>
+    <button>More ></button>
+
+    <script>
+      function newpin(type,extras) {
+        window.open(type, "_blank", "resize=true,alwaysOnTop=true,transparent=true,left=1100000,width=300,height=150,maxWidth=600,maxHeight=400,maximizable=false,"+extras)
+      }
+    </script>
+  </body>
+</html>

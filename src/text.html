@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text ScreenPin</title>
+    <style>
+        body {
+            -webkit-app-region: drag;
+            margin: 0;
+            padding: 0;
+            transition: .3s;
+            background-color: rgba(255, 255, 255, 0.324);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        }
+        body:hover {
+            background-color: rgba(255, 255, 255, 0.64);
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            resize: none;
+        }
+        #textarea {
+            border-radius: 10px;
+            background-color: transparent;
+            background-attachment: fixed;
+            transition: 0.3s;
+            padding: 20px;
+            padding-top: 40px;
+        }
+        #textarea:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="textarea" contenteditable=""></div>
+</body>
+</html>
