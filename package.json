@@ -8,7 +8,7 @@
     "startwindows": "electron .",
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make dmg",
+    "make": "electron-forge make --icon=icon.icns",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
   },
@@ -20,12 +20,15 @@
   "license": "MIT",
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "icon": "./icon.icns"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "screenpin"
+            "name": "screenpin",
+            "icon": "./icon.icns"
           }
         },
         {
@@ -45,7 +48,8 @@
         {
           "name": "@electron-forge/maker-dmg",
           "config": {
-            "format": "ULFO"
+            "format": "ULFO",
+            "icon": "./icon.icns"
           }
         }
       ]
