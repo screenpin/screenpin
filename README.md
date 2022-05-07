@@ -26,3 +26,32 @@ git clone https://github.com/isaacdoescodes/screenpin.git
 npm install
 npm start
 ```
+
+### Project Structure
+
+```
+screenpin
+  |-  src
+
+      |-  main
+
+           |- index.js
+                 The main project entry point. Launches the initial window and creates the menu.
+       
+      |-  renderer
+
+           |- styles
+              |- universal.css
+                   Universal project styles for buttons and boilerplate styles.
+           
+           |- index.html
+                    The screen which appears when the app is first launched.
+       
+           |- file.html
+           |- text.html
+           |- website.html    
+              The screen for each screenpin type
+
+      
+      
+```

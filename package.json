@@ -21,7 +21,7 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "./icon.icns"
+        "icon": "./icons/icon.icns"
       },
       "makers": [
         {
