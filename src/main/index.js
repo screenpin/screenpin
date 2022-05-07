@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -14,6 +14,11 @@ const createWindow = () => {
     resizable: false,
     minimizable: false,
     maximizable: false,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
+    },
     height: 150,
     titleBarStyle: 'hidden',
     autoHideMenuBar: true,
@@ -23,12 +28,64 @@ const createWindow = () => {
   }
   mainWindow.setMenu(null);
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'));
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
 };
 
+
+const template = [
+  {
+    label: 'ScreenPin',
+    submenu: [
+      { role: 'about' },
+
+      { type: 'separator' },
+
+      { role: 'services' },
+
+      { type: 'separator' },
+
+      { role: 'hide' },
+      { role: 'hideOthers' },
+
+      { type: 'separator' },
+
+      { role: 'quit' }
+    ]
+  },
+  {
+    label: 'Edit',
+    role: 'editMenu'
+  },
+  {
+    label: 'View',
+    submenu: [
+      { role: 'reload' },
+      { role: 'forceReload'},
+      { type: 'separator' },
+      { role: 'zoomIn' },
+      { role: 'zoomOut' }
+    ]
+  },
+  {
+    label: 'Window',
+    role: 'windowMenu'
+  },
+  {
+    label: 'Help',
+    submenu: [
+      { label: '(empty)' }
+    ]
+  }
+]
+
+  template[2].submenu[6] = {role:'toggleDevTools'};
+
+
+const menu = Menu.buildFromTemplate(template)
+Menu.setApplicationMenu(menu)
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.

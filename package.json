@@ -3,7 +3,7 @@
   "productName": "ScreenPin",
   "version": "1.0.0",
   "description": "My Electron application description",
-  "main": "src/index.js",
+  "main": "src/main/index.js",
   "scripts": {
     "startwindows": "electron .",
     "start": "electron-forge start",
@@ -28,7 +28,8 @@
           "name": "@electron-forge/maker-squirrel",
           "config": {
             "name": "screenpin",
-            "icon": "./icon.icns"
+            "icon": "./icon.icns",
+            "arch": "all"
           }
         },
         {

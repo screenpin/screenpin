@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website ScreenPin</title>
+    <link rel="stylesheet" href="styles/universal.css">
+    <style>
+        html,
+        body,
+        .holder {
+            width: 100%;
+            height: 100%;
+        }
+
+        .text {
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="holder">
+        <p class="text">
+            Drag your file here.<br><br>(PDF, Image, Video, HTML, TXT)
+        </p>
+    </div>
+
+    <script>
+        function getfilename(str) {
+            return str.split('\\').pop().split('/').pop();
+        }
+        function getextension(str) {
+            return str.split('.').pop();
+        }
+        document.addEventListener('drop', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            f = e.dataTransfer.files[0];
+            console.log(f);
+            if (
+                f.type == 'application/pdf'
+
+                || f.type == 'image/png'
+                || f.type == 'image/jpg'
+                || f.type == 'image/gif'
+                || f.type == 'image/webp'
+                || f.type == 'image/svg'
+                
+                || f.type == 'text/html'
+                || f.type == 'text/txt'
+
+                || f.type == 'video/mp4'
+                || f.type == 'video/mov'
+                || f.type == 'video/m4k'
+                || f.type == 'video/mpeg'
+                || f.type == 'video/mpeg4'
+                || f.type == 'video/webp'
+            ) {
+                window.location = f.path;
+            }
+            else {
+                alert("Unsupported File Type.\n\nTry converting it to a different format such as: png for image, mp4 for video or pdf for documents.")
+            }
+
+        });
+
+        document.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+    </script>
+</body>
+
+</html>

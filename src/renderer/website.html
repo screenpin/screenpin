@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <link rel="stylesheet" href="styles/universal.css">
+    <style>
+        body {
+            transition: .3s;
+            background-color: rgb(255, 255, 255);
+        }
+
+        html,
+        body,
+        #textarea {
+            width: 100%;
+            height: 100%;
+            resize: none;
+        }
+
+        #textarea {
+            border-radius: 10px;
+            min-height: 300px;
+            background-color: transparent;
+            transition: 0.3s;
+            padding: 20px;
+            padding-top: 40px;
+        }
+
+        #textarea:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.64);
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+        }
+
+        .enter {
+            width: 100%;
+            height: 80px;
+        }
+
+
+
+        input {
+            width: 200px;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .btn {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="enter">
+        <input type="text" autofocus placeholder="Type/Paste or Drag URL here..." id="sitefield">
+        <input class="btn" type="submit"
+            onclick="loadwebsite()" value="Go">
+    </div>
+    <script>
+        function validURL(str) {
+            var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+                '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+                '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+                '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+                '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+                '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+            return !!pattern.test(str);
+        }
+        function loadwebsite() {
+            var url = document.getElementById('sitefield').value;
+            if(!validURL(url)) {
+                alert("Invalid URL");
+                return;
+            }
+            window.resizeTo(600, 400);
+            window.location=document.getElementById('sitefield').value;
+        }
+    </script>
+</body>
+
+</html>
