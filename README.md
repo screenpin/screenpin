@@ -27,7 +27,7 @@ npm install
 npm start
 ```
 
-### Project Structure
+## Project Structure
 
 ```
 screenpin
