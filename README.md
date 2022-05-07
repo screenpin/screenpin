@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/isaacdoescodes/screenpin/blob/main/icon.png?raw=true" width="100"/>
+<img src="https://github.com/isaacdoescodes/screenpin/blob/main/icons/icon.png?raw=true" width="100"/>
   </p>
 
 <h1 align="center">ScreenPin</h1>
